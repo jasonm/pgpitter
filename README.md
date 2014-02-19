@@ -49,6 +49,21 @@ or:
     GET /statuses/:id
     Content-Type: text/html
 
+Examples
+--------
+
+This repo comes with a file `data` that has an example POST data. Use it
+as a template.
+
+The `signed_body` was generated from an input file named `tweet` using:
+
+    gpg -a --output tweet.asc --sign tweet
+
+These commands can be used to interact with the system:
+
+    curl -i -d@data localhost:7000/statuses -H "Content-Type: application/json"
+    curl -i localhost:7000/followers/DC97B779C6472D97/statuses -H "Content-Type: application/json"
+    curl -i localhost:7000/statuses/17 -H "Content-Type: application/json" -H "Accept: application/json"
 
 Getting Started
 ---------------
