@@ -7,7 +7,7 @@ class Status < ActiveRecord::Base
 
   def set_keyid
     self.body, raw_key = verify
-    self.key = Key.find_or_create_by_keyid(raw_key.sha)
+    self.key = Key.find_or_create_by(keyid: raw_key.primary_subkey.keyid)
   rescue GPGME::Error::NoData
     self.errors.add(:signed_body, "Invalid signature")
     false
