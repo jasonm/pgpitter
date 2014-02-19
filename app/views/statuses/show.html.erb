@@ -1,0 +1,8 @@
+<p><%= @status.body %></p>
+<p>By <%= @status.key.keyid %>.</p>
+<div>
+  <h2>Signed text</h2>
+  <pre>
+    <%= @status.signed_body %>
+  </pre>
+</div>

@@ -9,6 +9,8 @@ _Create a new status_. This takes JSON where the content is a piece of
 text that is signed using a PGP key.
 
     POST /statuses
+    Content-Type: application/json
+
     { status: { signed_body: PGP-signed-ASCII } }
 
     =>
@@ -19,6 +21,8 @@ _View updates_. This shows all statuses for the people who have signed
 your PGP key. Produces a JSON result.
 
     GET /followers/:keyid/statuses
+    Content-Type: application/json
+
 
     =>
 
@@ -37,6 +41,14 @@ _View a status_. Takes a status ID. This is mostly here just for sharing
 URLs with others.
 
     GET /statuses/:id
+    Content-Type: application/json
+    Accept: application/json
+
+or:
+
+    GET /statuses/:id
+    Content-Type: text/html
+
 
 Getting Started
 ---------------
