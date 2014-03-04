@@ -6,6 +6,11 @@
 # Exit if any subcommand fails
 set -e
 
+# Install gnupg and gpgme if on OS X
+if [ $(uname) == 'Darwin' ] && command -v brew ; then
+  brew install gnupg gpgme
+fi
+
 # Set up Ruby dependencies via Bundler
 bundle install
 
